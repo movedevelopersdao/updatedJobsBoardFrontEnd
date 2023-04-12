@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aptos Jobs Board</title>
     <style>
@@ -67,6 +68,31 @@
         .nav-tab-link:hover {
             background: #747DCF;
         }
+
+        .header-title-text {
+            color: white;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 45px;
+            line-height: 160%;
+            /* identical to box height, or 72px */
+            text-align: center;
+            text-transform: capitalize;
+
+            color: #FFFFFF;
+        }
+
+        .aptos-img {
+            margin-right: 0px;
+            margin-left: 10px;
+            position: relative;
+            top: 3px;
+            cursor: pointer;
+        }
+        .header-title{
+            padding-bottom: 50px;
+           }
     </style>
 </head>
 
@@ -75,14 +101,21 @@
         <nav class="nav-bar">
             <img src="./assets/logo.png" alt="move-logo" class="move-logo">
             <div class="nav-tabs">
-                <a href="" class="nav-tab-link">SignUp</a>
-                <a href="" class="nav-tab-link">LogIn</a>
+                <a href="" class="nav-tab-link">Sign Up</a>
+                <a href="" class="nav-tab-link">Log In</a>
                 <a href="" class="nav-tab-link">Post Job</a>
             </div>
         </nav>
+        <div class="header-title">
+            <h1 class="header-title-text">Find Jobs in<span><img onclick="javascript:location.href='https://aptoslabs.com/'" class="aptos-img" src="./assets/aptos-img.png"
+                        alt=""></span> Ecosystem</h1>
+        </div>
     </header>
 </body>
 
-</html>
+<script>
+    
+    
+</script>
 
-<!-- git remote add origin https://github.com/movedevelopersdao/updatedJobsBoardFrontEnd.git -->
+</html>
