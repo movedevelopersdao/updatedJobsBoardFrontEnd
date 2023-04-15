@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>Aptos Jobs Board</title>
+    <style>
+        body {
+            /* background: black; */
+            margin: 0 0;
+        }
+
+        .header-section {
+            background: url('./assets/navyBlue-bg.png')no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            /* height: 300px; */
+        }
+
+        .nav-bar {
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .move-logo {
+            height: 80px;
+            width: 65px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-tab-link {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 160%;
+            /* identical to box height, or 32px */
+            letter-spacing: 0.11em;
+            color: #FFFFFF;
+            cursor: pointer;
+            margin-right: 30px;
+            transition: all;
+            transition-duration: 0.7s;
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition-timing-function: ease-in;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        .nav-tab-link:hover {
+            background: #747DCF;
+        }
+
+        .form-display {
+            margin: 20px 250px;
+            padding: 20px 20px;
+        }
+
+        .form-head-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 550;
+            font-size: 25px;
+            line-height: 146%;
+            /* identical to box height, or 41px */
+
+            text-transform: capitalize;
+
+            color: #686868;
+        }
+
+        .form-label {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 146%;
+            /* or 29px */
+
+            text-transform: capitalize;
+        }
+
+        .form-element{
+            margin-top: 10px;
+        }
+        .input-field {
+            border: 0.5px solid rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            width: 90%;
+            padding: 10px 10px;
+            margin-top: 10px;
+            font-size: 19px;
+        }
+        .input-field:focus{
+            outline: none;
+        }
+        .form-label-checkbox{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 146%;
+            /* or 29px */
+
+            /* text-transform: capitalize; */
+        }
+        .checkbox-input-container{
+            display: flex;
+            margin-top: 5px;
+            
+        }
+        .submit-btn{
+            padding: 10px 20px;
+            color: white;
+            background: #747DCF;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 146%;
+            border: none;
+            border-radius: 10px;
+        }
+        .submit-btn-div{
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-section">
+        <nav class="nav-bar">
+            <img src="./assets/logo.png" alt="move-logo" class="move-logo">
+            <div class="nav-tabs">
+                <!-- <a href="" class="nav-tab-link">Sign Up</a> -->
+                <a href="" class="nav-tab-link">StartUps</a>
+                <a href="" class="nav-tab-link">Post Job</a>
+            </div>
+        </nav>
+    </header>
+    <div class="form-display">
+        <h1 class="form-head-text">Tell us more about the position</h1>
+        <form action="/postJob" method="post">
+            <div class="form-element">
+                <label for="company-name" class="form-label">Company Name</label> <br>
+            <input type="text" name="company-name" id="company-name" class="input-field"
+                placeholder="Your Startup or Project Name">
+            </div>
+            <div class="form-element">
+                <label for="primary-role" class="form-label">Primany Role</label> <br>
+            <input type="text" name="primary-role" id="primary-role" class="input-field"
+                placeholder="eg. BlockChain developer/Commuinty Manager">
+            </div>
+               
+            <div class="form-element">
+                <label for="" class="form-label">Type Of Position</label><br>
+                <div class="checkbox-input-container"><input style="width:20px;height: 20px;" type="checkbox" name="position" value="Full-Time">
+                <label for="position" class="form-label-checkbox">Full-Time</label></div><br>
+                <div class="checkbox-input-container"><input style="width:20px;height: 20px;" type="checkbox" name="position" value="Part-Time">
+                <label for="position" class="form-label-checkbox">Part-Time</label></div><br>
+                <div class="checkbox-input-container"><input style="width:20px;height: 20px;" type="checkbox" name="position" value="Internship">
+                <label for="position" class="form-label-checkbox">Internship</label></div><br>
+                <div class="checkbox-input-container"><input style="width:20px;height: 20px;" type="checkbox" name="position" value="Contract">
+                <label for="position" class="form-label-checkbox">Contract</label></div><br>
+                <div class="checkbox-input-container"><input style="width:20px;height: 20px;" type="checkbox" name="position" value="Freelance">
+                <label for="position" class="form-label-checkbox">Freelance</label></div><br>
+            </div>
+            <div class="form-element">
+                <label for="job-description" class="form-label">Job Description</label> <br>
+            <textarea type="text" name="job-description" rows="10" id="job-description" class="input-field"
+                placeholder="Give a brief Description about the job"></textarea>
+            </div> 
+            <div class="form-element">
+                <label for="job-requirements" class="form-label">Job Requirements</label> <br>
+            <textarea type="text" name="job-requirements" rows="10" id="job-requirements" class="input-field"
+                placeholder="Each requirement should be on the new Line"></textarea>
+            </div>
+            <div class="form-element">
+                <label for="keywords" class="form-label">Keywords (optional)</label> <br>
+            <input type="text" name="keywords" id="keywords" class="input-field"
+                placeholder="sepearte each word by a comma(,) eg. Bitcoin,Commuinty">
+            </div>
+            <div class="form-element">
+                <label for="email" class="form-label">Email</label> <br>
+            <input type="text" name="email" id="email" class="input-field"
+                placeholder="">
+            </div>
+            <div class="form-element">
+                <label for="website" class="form-label">Website/GitHub/LinkedIn</label> <br>
+            <input type="text" name="website" id="website" class="input-field"
+                placeholder="Give a link to your GitHub/Site/LinkedIn/Twitter">
+            </div>
+            <div class="form-element">
+                <label for="compensation" class="form-label">Compensation(Optional but highly recommended)</label> <br>
+            <input type="text" name="currency" id="currency" class="input-field"
+                placeholder="eg. INR/USD/EUR">
+            <input type="text" name="amount" id="amount" class="input-field"
+                placeholder="Range(Min-Max) eg. 15000-20000">
+            </div>
+            <div class="form-element submit-btn-div"><button type="submit" class="submit-btn">Post JOB</button></div>
+        </form>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
