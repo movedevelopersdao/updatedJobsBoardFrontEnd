@@ -318,7 +318,7 @@ opacity: 0.5;
                 <h1 class="job-description-text"><%= job.keywordsArray[0] %></h1>
                 <hr>
                 
-                <div class="form-element submit-btn-div-1"><button type="submit" onclick="openJobApplication('<%= job.id %>')" class="submit-btn">Apply To job</button></div>
+                <div class="form-element submit-btn-div-1"><button style="cursor: pointer;" type="submit" onclick="openJobApplication('<%= job.id %>')" class="submit-btn">Apply To job</button></div>
             </div>
             <div class="job-application-section">
                 <h1 class="form-head-text">Overview</h1>
@@ -334,7 +334,7 @@ opacity: 0.5;
                     <% } %>
                 
 
-                <div class="form-element submit-btn-div"><button type="submit" onclick="openJobApplication('<%= job.id %>')" class="submit-btn">Apply To job</button></div>
+                <div class="form-element submit-btn-div"><button style="cursor: pointer;" type="submit" onclick="openJobApplication('<%= job.id %>')" class="submit-btn">Apply To job</button></div>
                     <!-- <form action="/applyJob">
                     <div class="form-element">
                         <label for="company-name" class="form-label">Full Name</label> <br>
