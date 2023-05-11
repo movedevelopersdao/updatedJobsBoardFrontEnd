@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptos Jobs Board</title>
+    <style>
+        body {
+            /* background: black; */
+            margin: 0 0;
+        }
+
+        .header-section {
+            background: url('/assets/navyBlue-bg.png')no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            /* height: 300px; */
+        }
+
+        .nav-bar {
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .move-logo {
+            height: 80px;
+            width: 65px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-tab-link {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 160%;
+            /* identical to box height, or 32px */
+            letter-spacing: 0.11em;
+            color: #FFFFFF;
+            cursor: pointer;
+            margin-right: 30px;
+            transition: all;
+            transition-duration: 0.7s;
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition-timing-function: ease-in;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        .nav-tab-link:hover {
+            background: #747DCF;
+        }
+
+        .header-title-text {
+            color: white;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 45px;
+            line-height: 160%;
+            /* identical to box height, or 72px */
+            text-align: center;
+            text-transform: capitalize;
+
+            color: #FFFFFF;
+        }
+
+        .aptos-img {
+            margin-right: 0px;
+            margin-left: 10px;
+            position: relative;
+            top: 3px;
+            cursor: pointer;
+        }
+
+        .header-title {
+            padding-bottom: 50px;
+        }
+
+        .jobs-display-box {
+            margin: 20px 180px;
+            
+        }
+
+        .search-jobs-alerts {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px
+        }
+
+        .search-job-title-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 34px;
+            line-height: 160%;
+            /* or 54px */
+
+
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .search-icon{
+            position: relative;
+            right: 5px;
+        }
+
+        .alert-job-title-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 160%;
+            /* identical to box height, or 26px */
+
+
+            color: #020202;
+        }
+
+        .bell-icon-span {
+            position: relative;
+            top: 3px;
+            right: 3px;
+        }
+
+        .search-form {
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 20px;
+            margin: 20px 0px;
+        }
+
+        .search-box {
+            display: flex;
+            padding: 10px 20px;
+            background: #EEEEEE;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 10px;
+            width: 500px;
+        }
+
+
+
+        .search-img {
+            position: relative;
+            right: 5px;
+            top: 1px;
+        }
+
+        .input-field {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 21px;
+            line-height: 160%;
+            /* identical to box height, or 34px */
+
+
+            color: #828282;
+            background: transparent;
+            border-radius: 20px;
+            border: none;
+
+        }
+        .input-field:focus{
+            outline: none;
+        }
+
+        .search-field-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 160%;
+            /* identical to box height, or 32px */
+
+
+            color: #2F2F2F;
+        }
+
+        
+
+        .remote-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 160%;
+            /* identical to box height, or 29px */
+
+            letter-spacing: 0.11em;
+            cursor: pointer;
+            color: #2F2F2F;
+            margin: 0px;
+            transition: all;
+            transition-duration: 0.3s;
+            transition-timing-function: ease-in-out;
+        }
+
+        .remote-text:hover{
+            color: white;
+            background: #747DCF;
+            padding: 0px 20px;
+            border-radius: 10px;
+            
+        }
+
+
+        .form-element-search {
+            width: 400px;
+        }
+
+        .job-boxs {
+            margin: 40px 0px;
+            padding: 0px 20px;
+            
+        }
+
+        .job-box {
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 6px 6px 12px #404040;
+
+        }
+
+        .job-details{
+            display: flex;
+        }
+
+        .img-sec{
+            display: flex;
+            /* flex-grow: 1; */
+            padding-top: 20px;
+        }
+        .img-container{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .job-img{
+            height: 60px;
+            width: 60px;
+        }
+
+        .job-details-side{
+            flex-grow: 5;
+            margin-left: 30px;
+        }
+
+        .job-details-top-sec{
+            display: flex;
+            justify-content:space-between;
+            
+        }
+
+        .job-details-middle-sec{
+            display: flex;
+
+        }
+        .job-details-bottom-sec{
+            display: flex;
+            
+        }
+
+        .job-title {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 650;
+            font-size: 25px;
+            line-height: 160%;
+            /* or 46px */
+            color: rgba(0, 0, 0, 0.7);
+            transition: all;
+            transition-duration: 0.3s;
+            transition-timing-function: ease-in-out;
+            margin-bottom: 0;
+        }
+        .job-title:hover{
+            text-decoration: underline;
+        }
+
+        .job-company-name {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 160%;
+            /* identical to box height, or 32px */
+
+            transition: all;
+            transition-duration: 0.3s;
+            transition-timing-function: ease-in-out;
+            color: #686868;
+        }
+        .job-company-name:hover{
+            text-decoration: underline;
+        }
+
+        .days {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 160%;
+            /* identical to box height, or 29px */
+
+
+            color: #686868;
+        }
+
+        .read-more {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 160%;
+            /* identical to box height, or 32px */
+            padding: 10px 10px;
+            background: #CECECE;
+            color: #828282;
+            cursor: pointer;
+        }
+
+        .job-detail-middle-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 160%;
+            /* identical to box height, or 32px */
+
+            margin-right: 10px;
+            color: #686868;
+
+        }
+
+        .keyword {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 160%;
+            /* identical to box height, or 29px */
+            padding: 5px 10px;
+            border: 1px solid #A9A9A9;
+            border-radius: 10px;
+            margin-right: 20px;
+            color: #686868;
+        }
+
+
+        .job-details-additional{
+            display: flex;
+
+        }
+        .job-details-keywords{
+            display: flex;
+            /* justify-content: space-between; */
+        }
+        .job-details-next-page-small-screen{
+            display: none;
+        }
+        @media screen and (max-width: 1300px){
+            .nav-bar {
+            padding: 20px 60px;
+            }
+            .jobs-display-box {
+            margin: 20px 120px;
+            
+            }
+            
+        }
+        @media screen and (max-width: 1200px){
+            .nav-tab-link{
+                margin-right: 0;
+            }
+            .job-details-side{
+                width: 600px;
+            }
+            .keyword{
+                font-size: 12px;
+            }
+            .read-more{
+                font-size: 15px;
+            }
+            .img-container{
+                height: 80px;
+                width: 80px;
+            }
+            .job-img{
+                width: 50px;
+                height: 60px;
+            }
+            .job-title{
+                font-size: 23px;
+            }
+            .days{
+                margin-top: 20px;
+            }
+            .read-more{
+                min-width: 75px;
+                text-align: center;
+            }
+
+        }
+        @media screen and (max-width: 1100px){
+            .job-details-side{
+                margin-left: 20px;
+            }
+            .jobs-display-box {
+            margin: 20px 100px;
+            }
+            .job-details-keywords{
+                flex-wrap: wrap;
+            }
+            .keyword{
+                min-width: 52px;
+                text-align: center;
+            }
+            
+        }
+
+        @media screen and (max-width: 1100px){
+            .nav-bar {
+            padding: 20px 40px;
+            }
+            .jobs-display-box {
+            margin: 20px 80px;
+            }
+            .header-title-text{
+                font-size: 42px;
+            }
+            .aptos-img{
+                width: 170px;
+                height: 40px;
+            }
+            .search-job-title-text{
+                font-size: 30px;
+            }
+            .job-title{
+                font-size: 23px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .job-company-name{
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+        
+        @media screen and (max-width: 700px){
+            .header-title-text{
+                font-size: 40px;
+            }
+            .search-job-title-text{
+                font-size: 25px;
+            }
+            .job-title{
+                font-size: 20px;
+            }
+
+            .job-company-name{
+                font-size: 15px;
+            }
+            .job-detail-middle-text{
+                font-size: 15px;
+            }
+            .read-more{
+                font-size: 13px;
+                min-width: 63px;
+                text-align: center;
+            }
+            .days{
+                margin-top: 20px;
+            }
+            .job-details-next-page{
+                margin-right: 10px;
+            }
+            .keyword{
+                font-size: 10px;
+                min-width: 30px;
+                margin-right: 10px;
+            }
+            .jobs-display-box {
+            margin: 20px 50px;
+            }
+            
+        }
+        @media screen and (max-width: 600px){
+            .img-container{
+                height: 60px;
+                width: 60px;
+
+            }
+            .job-img{
+                width: 35px;
+                height: 45px;
+            }
+        }
+        @media screen and (max-width: 600px){
+            .move-logo{
+                width: 50px;
+                height: 60px;
+            }
+            .nav-tab-link{
+                font-size: 15px;
+                padding: 10px 10px;
+            }
+            
+        }
+
+        @media screen and (max-width: 550px){
+            .search-job-title-text{
+                font-size: 20px;
+            }
+            .job-img{
+                width: 30px;
+                height: 40px;
+            }
+            .header-title-text{
+                font-size: 30px;
+            }
+            .aptos-img{
+                width: 130px;
+                height: 30px;
+            }
+            
+            .job-title{
+                font-size: 15px;
+                font-weight: 650;
+                margin: 0 0;
+            }
+            .jobs-display-box {
+            margin: 20px 40px;
+            }
+            .job-company-name{
+                font-size: 12px;
+            }
+            .job-detail-middle-text{
+                font-size: 12px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-right: 5px;
+            }
+            .keyword{
+                padding: 5px 5px;
+            }
+            .days{
+                font-size: 12px;
+            }
+            .read-more{
+                min-width: 60px;
+            }
+            .job-details-next-page{
+                display: none;
+            }
+            .job-details-keywords{
+                width: 300px;
+            }
+            .job-details-next-page-small-screen{
+                display: flex;
+            }
+            .next-page-detail{
+                margin-right: 10px;
+            }
+            .days{
+                margin-right: 30px;
+                position: relative;
+                bottom: 5px;
+            }
+            .read-more{
+                padding: 5px;
+            }
+            .img-sec{
+                padding-top: 40px ;
+            }
+            
+        }
+        @media screen and (max-width: 500px){
+            .job-details-keywords{
+                width: 260px;
+            }
+            .img-sec{
+                padding-top: 60px;
+            }
+            .job-box{
+                padding:10px 10px ;
+            }
+        }
+
+        @media screen and (max-width: 420px){
+            .job-details-keywords{
+                width: 210px;
+            }
+            .job-title{
+                font-size: 13px;
+            }
+            
+        }
+        @media screen and (max-width: 1500px) {
+            .search-box{
+                width: 400px;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-section">
+        <nav class="nav-bar">
+            <img src="/assets/logo.png" alt="move-logo" class="move-logo">
+            <div class="nav-tabs">
+                <!-- <a href="" class="nav-tab-link">Sign Up</a> -->
+                <a href="" class="nav-tab-link">StartUps</a>
+                <a href="/postJob" class="nav-tab-link">Post Job</a>
+            </div>
+        </nav>
+        <div class="header-title">
+            <h1 class="header-title-text">Find Jobs in<span><img
+                        onclick="javascript:location.href='https://aptoslabs.com/'" class="aptos-img"
+                        src="/assets/aptos-img.png" alt=""></span> Ecosystem</h1>
+        </div>
+    </header>
+    <div class="jobs-display-box">
+        <div class="search-jobs-alerts">
+            <div class="search-job-title">
+                <h1 class="search-job-title-text">Search Jobs</h1>
+            </div>
+            <!-- <div class="alert-job-title">
+                <h1 class="alert-job-title-text"> <span class="bell-icon-span"><img class="bell-icon"
+                            src="./assets/bell-icon.png" alt=""></span> My jobs alert</h1>
+            </div> -->
+        </div>
+        <div class="form">
+            <form action="/search" class="search-form">
+                <div class="search-field">
+                    <label class="search-field-text" for="title">Role, company, or Keywords</label>
+                    <div class="search-box">
+                        <div class="search-icon icon"><img src="/assets/search-icon.png" alt=""
+                                class="search-img icon-img"></div>
+                        <input class="input-field form-element-search" name="title" type="text" id="title"
+                            placeholder="Search by Role, Company, Skill">
+                            <h1 onclick="searchJob1()" class="remote-text">Search</h1>
+                    </div>
+                </div>
+                <div class="search-field">
+                    <label class="search-field-text" for="location">Where?</label>
+                    <div class="search-box">
+                        <input class="input-field form-element" name="location" type="text"
+                            placeholder="Bangalore, India" id="location-input">
+                        <h1 onclick="searchJob2()" id="remote-text" class="remote-text">Remote</h1>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="job-boxs" >
+            <% Jobs.forEach(job => { %>
+            <div class="job-box" onclick="openJobPreview('<%= job.id %>')">
+                <div class="job-details">
+
+                    <div class="img-sec">
+                        <div  class="img-container">
+                            <img src="/uploads/<%= job.photo %>" alt="move-logo" class="job-img">
+                        </div>
+                    </div>
+                    <div class="job-details-side">
+                    <h1 class="job-title"><%= job.role %></h1>
+                    <h1 class="job-company-name"><%= job.companyName %></h1>
+                    <div class="job-details-additional">
+                        <h1 class="location job-detail-middle-text"><%= job.location %></h1>
+                        <h1 class="domain job-detail-middle-text"><%= job.remote %></h1>
+                        <h1 class="position job-detail-middle-text"><%= job.position %></h1>
+                    </div>
+                    <div class="job-details-keywords">
+                        <% for(let i = 0; i< job.keywordsArray.length ; i++) { %>
+                        <h1 class="keyword"><%= job.keywordsArray[i] %></h1>
+                        <% } %>
+                    </div>
+                    <div class="job-details-next-page-small-screen" >
+                        <!-- <h1 class="days next-page-detail">1 Day</h1> -->
+                        <div   class="view-box"><h1  class="read-more next-page-detail"> View Job</h1></div>
+                    </div>
+                </div>
+                <div class="job-details-next-page">
+                    <!-- <h1 class="days">1 Day</h1> -->
+                    <h1 class="read-more">View Job</h1>
+                </div>
+            </div>
+            </div>
+            <% } ) %>
+            <!-- <--------- -->
+            
+        </div>
+    </div>
+</body>
+
+<script>
+    function openJobPreview(jobId){
+          let link = '/jobPreview?jobId='+jobId;
+          window.open(link, '_self');
+        // console.log("clicked");
+    }
+
+    let locationInput = document.getElementById('location-input');
+    let remoteText = document.getElementById('remote-text');
+
+    locationInput.addEventListener('focus', ()=>{
+        remoteText.innerHTML = 'Search'
+    })
+
+    function searchJob1(){
+        let title = document.getElementById('title').value;
+        if(title == ''){
+            window.open('/', '_self');
+        }
+        else{
+            let link = "/searchJob?title="+title+"&location=";
+            window.open(link, '_self');
+        }
+    }
+    function searchJob2(){
+        let location = document.getElementById('location-input').value;
+        if(location == ''){
+            let link = "/searchJob?title=''&location=remote";
+            window.open(link, '_self');
+        }
+        else{
+            let link = "/searchJob?title=''&location="+location;
+            window.open(link, '_self');
+        }
+    }
+
+    
+
+</script>
+
+</html>

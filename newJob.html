@@ -144,6 +144,11 @@
             display: flex;
             justify-content: center;
         }
+        .checkbox-input{
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -160,15 +165,15 @@
     </header>
     <div class="form-display">
         <h1 class="form-head-text">Tell us more about the position</h1>
-        <form action="/postJob" method="post">
+        <form action="/addJob" method="post" enctype="multipart/form-data">
             <div class="form-element">
-                <label for="company-name" class="form-label">Company Name</label> <br>
-            <input type="text" name="company-name" id="company-name" class="input-field"
+                <label for="companyName" class="form-label">Company Name</label> <br>
+            <input type="text" name="companyName" id="company-name" class="input-field"
                 placeholder="Your Startup or Project Name">
             </div>
             <div class="form-element">
-                <label for="primary-role" class="form-label">Primany Role</label> <br>
-            <input type="text" name="primary-role" id="primary-role" class="input-field"
+                <label for="primaryRole" class="form-label">Primany Role</label> <br>
+            <input type="text" name="primaryRole" id="primary-role" class="input-field"
                 placeholder="eg. BlockChain developer/Commuinty Manager">
             </div>
                
@@ -186,14 +191,19 @@
                 <label for="position" class="form-label-checkbox">Freelance</label></div><br>
             </div>
             <div class="form-element">
-                <label for="job-description" class="form-label">Job Description</label> <br>
-            <textarea type="text" name="job-description" rows="10" id="job-description" class="input-field"
+                <label for="jobDescription" class="form-label">Job Description</label> <br>
+            <textarea type="text" name="jobDescription" rows="10" id="job-description" class="input-field"
                 placeholder="Give a brief Description about the job"></textarea>
             </div> 
             <div class="form-element">
-                <label for="job-requirements" class="form-label">Job Requirements</label> <br>
-            <textarea type="text" name="job-requirements" rows="10" id="job-requirements" class="input-field"
-                placeholder="Each requirement should be on the new Line"></textarea>
+                <label for="jobAction" class="form-label">what you have to do</label> <br>
+            <textarea type="text" name="jobAction" rows="10" id="job-action" class="input-field"
+                placeholder="Seperated by commas tell us the tasks "></textarea>
+            </div>
+            <div class="form-element">
+                <label for="jobRequirements" class="form-label">Job Requirements</label> <br>
+            <textarea type="text" name="jobRequirements" rows="10" id="job-requirements" class="input-field"
+                placeholder="Seperated by commas tell us the requirements"></textarea>
             </div>
             <div class="form-element">
                 <label for="keywords" class="form-label">Keywords (optional)</label> <br>
@@ -217,11 +227,99 @@
             <input type="text" name="amount" id="amount" class="input-field"
                 placeholder="Range(Min-Max) eg. 15000-20000">
             </div>
-            <div class="form-element submit-btn-div"><button type="submit" class="submit-btn">Post JOB</button></div>
+            <div class="input form-element">
+                <label for="base_salary" class="form-label">Location</label>
+                <input type="text" id="location" class="location input-field" name="location"
+                    placeholder="eg: Bengaluru,India" name="location""><br>
+                    <label class="checkbox-input form-label">
+                        <input style="width:20px;height: 20px;" type="checkbox" id="remote" name="remote" value="remote">
+                        <label for="" class="form-label">Remote</label>
+                    </label>
+                
+            </div>
+            <div class="form-element">
+                <label for="photo" class="form-label">Upload Company Logo</label> <br>
+            <input type="file" name="photo" accept="" id="photo" class="input-field"
+                placeholder="">
+            </div>
+            <div class="form-element submit-btn-div"><button type="submit" id="submit-btn" class="submit-btn">Post JOB</button></div>
         </form>
     </div>
 
     <script>
+
+const checkboxes = document.getElementsByName("position");
+for (let i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener("click", function() {
+    if (this.checked) {
+      for (let j = 0; j < checkboxes.length; j++) {
+        if (checkboxes[j] !== this) {
+          checkboxes[j].checked = false;
+        }
+      }
+    }
+  });
+}
+
+const submitBtn = document.getElementById('submit-btn');
+submitBtn.addEventListener('click', (event)=>{
+    const cName = document.getElementById('company-name').value;
+    const cRole = document.getElementById('primary-role').value;
+    const cPosition = document.getElementsByName('position');
+    const cDescription = document.getElementById('job-description').value;
+    const cAction = document.getElementById('job-action').value;
+    const cRequirements = document.getElementById('job-requirements').value;
+    const cKeywords = document.getElementById('keywords').value;
+    const cEmail = document.getElementById('email').value;
+    const cWebsite = document.getElementById('website').value;
+    const cCurrency = document.getElementById('currency').value;
+    const cRange = document.getElementById('amount').value;
+    const cPhoto = document.getElementById('photo').value;
+    const location = document.getElementById('location').value;
+    const remote = document.getElementById('remote');
+
+    if(cName == '' && cRole == '' && cDescription == '' && cAction == '' && cRequirements == ''  && cPhoto == '' && cWebsite == ''){
+        alert('Name, Role, Description, Things to do, Requirements, Photo fields of the form cannot be empty');
+        event.preventDefault();
+        return;
+    }
+
+    if(location == '' && remote.checked == false){
+        alert('give us the location / check remote option');
+        event.preventDefault();
+        return;
+    }
+
+    if(cKeywords == ''){
+        alert('Keyowrds help the users search related jobs faster');
+        event.preventDefault();
+        return;
+    }
+
+    let checked = false
+    for(let i=0; i< cPosition.length; i++){
+        if(cPosition[i].checked == true){
+            checked = true;
+        }
+    }
+    if(!checked){
+        alert("select type of position");
+        event.preventDefault();
+        return;
+    }
+
+    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    console.log(cEmail.match(emailRegex));
+    if (!cEmail.value.match(emailRegex)) {
+      alert("Email is not valid.");
+      event.preventDefault();
+      return
+    }
+
+    
+    
+
+})
 
     </script>
 </body>
